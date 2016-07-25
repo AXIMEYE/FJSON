@@ -3,6 +3,7 @@ package com.android.aximeye.fjson;
 public class Post {
     String title;
     String creator;
+    String link;
     // add variable to hold thumbnail
 
     public String getTitle() {
@@ -21,8 +22,11 @@ public class Post {
         this.creator = creator;
     }
 
-    @Override
-    public String toString() {
-        return title + "\n" + "Author: " + creator;
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 }
