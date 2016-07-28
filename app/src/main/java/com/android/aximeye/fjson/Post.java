@@ -1,10 +1,12 @@
 package com.android.aximeye.fjson;
 
+import android.graphics.Bitmap;
+
 public class Post {
     String title;
     String creator;
     String link;
-    // add variable to hold thumbnail
+    Bitmap thumbnail;
 
     public String getTitle() {
         return title;
@@ -28,5 +30,13 @@ public class Post {
 
     public void setLink(String link) {
         this.link = link;
+    }
+
+    public Bitmap getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(Bitmap thumbnail) {
+        this.thumbnail = thumbnail;
     }
 }

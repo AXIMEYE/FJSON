@@ -1,6 +1,7 @@
 package com.android.aximeye.fjson;
 
 import android.app.ListActivity;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -34,6 +35,7 @@ public class MainActivity extends ListActivity implements Callback<ResponseBody>
         setListAdapter(adapter);
     }
 
+    // TODO: 28-07-2016 get rid of menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
@@ -52,6 +54,7 @@ public class MainActivity extends ListActivity implements Callback<ResponseBody>
         }
         return true;
     }
+
 
     public void loadPosts() {
         Retrofit retrofit = new Retrofit.Builder()
@@ -84,6 +87,17 @@ public class MainActivity extends ListActivity implements Callback<ResponseBody>
                         post.setTitle(jsonObject2.getString("title"));
                         post.setCreator(jsonObject2.getString("author"));
                         post.setLink(jsonObject2.getString("url"));
+
+                        Bitmap bm = null;
+                        try {
+                            bm = new DownloadThumbnailsTask()
+                                    .execute(jsonObject2.getString("thumbnail"))
+                                    .get();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        post.setThumbnail(bm);
+
                         redditPosts.posts.add(post);
                     }
                 } catch (JSONException e) { e.printStackTrace();}
