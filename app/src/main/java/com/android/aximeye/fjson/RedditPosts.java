@@ -1,20 +1,19 @@
 package com.android.aximeye.fjson;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class RedditPosts {
-    List<Post> posts;
+    ArrayList<Post> posts;
 
     public RedditPosts() {
         posts = new ArrayList<Post>();
     }
 
-    public List<Post> getPosts() {
+    public ArrayList<Post> getPosts() {
         return posts;
     }
 
-    public void setPosts(List<Post> posts) {
+    public void setPosts(ArrayList<Post> posts) {
         this.posts = posts;
     }
 }

@@ -9,8 +9,9 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.android.aximeye.test.MainActivity">
 
+    <!--check why should the id be: @android:id/list, unlike the one in codepath-->
     <ListView
-        android:id="@+id/posts_list_view"
+        android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </ListView>
